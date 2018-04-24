@@ -1,0 +1,22 @@
+version: '2'
+
+services:
+
+  tailor:
+    build: tailor
+    ports:
+      - 9000:9000
+      - 9001:9001
+    depends_on:
+      - dependencies
+      - react
+
+  dependencies:
+    build: dependencies
+    ports:
+      - 9003:9003
+
+  react:
+    build: react-app
+    ports:
+      - 9002:9002
